@@ -33,7 +33,7 @@ class Game:
         self.clock = pygame.time.Clock()
 
         from src.Client.TextWindow import WaitWindow
-        self.active_window = WaitWindow()
+        self.active_window = WaitWindow(self.screen.get_size())
 
         from src.Client.SIOServer import sio, run
         self.active_window.set_sio(sio)

@@ -6,10 +6,17 @@ from src.utility.utilities import Vector
 
 
 class WaitWindow(Window):
-    def __init__(self):
+    def __init__(self, window_size=None):
         super().__init__()
         text = TextContainer('Waiting! Be comfy, take a cookie.')
-        self.add_child(text, Vector(400, 500))
+
+        if window_size is not None:
+            text_size = text.get_text_size()
+            text_position = Vector((window_size[0] - text_size.x) / 2, (window_size[1] - text_size.y) / 3)
+        else:
+            text_position = Vector(400, 500)
+
+        self.add_child(text, text_position)
         self.map = None
 
     def accept_action(self, action):

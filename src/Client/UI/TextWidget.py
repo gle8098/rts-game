@@ -14,3 +14,6 @@ class TextContainer(Widget):
 
     def draw(self, surface: pygame.Surface, abs_position: Vector):
         surface.blit(self.text_surface, abs_position)
+
+    def get_text_size(self):
+        return Vector(self.text_surface.get_width(), self.text_surface.get_height())
